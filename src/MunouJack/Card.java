@@ -18,7 +18,7 @@ public class Card {
 		int result = new Random().nextInt(13) + 1;
 
 		//13だったときスコア10にする。(問題文未記載)
-		return (result <= 11)? 10 : result;
+		return (result >= 11)? 10 : result;//(result <= 11)にしたPullPull野郎ぶっ殺すからな
 	}
 
 	//getter

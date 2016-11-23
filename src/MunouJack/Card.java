@@ -8,24 +8,17 @@ public class Card {
 
 	//コンストラクタ
 	Card() {
-		this.aceCounter = false;
-		this.number = RandomCard();
+		this.number = RandomNumber();
+		//エースを判定する
+		this.aceCounter = (this.number == 1)? true : false;
 	}
 
 	//ランダムな数字を生成
-	public int RandomCard() {
+	private int RandomNumber() {
 		int result = new Random().nextInt(13) + 1;
 
 		//13だったときスコア10にする。(問題文未記載)
-		if (result == 11 || result == 12 || result == 13) {
-			result = 10;
-		} else {
-			//エースを判定する
-			if (result == 1) {
-				this.aceCounter = true;
-			}
-		}
-		return result;
+		return (result <= 11)? 10 : result;
 	}
 
 	//getter
